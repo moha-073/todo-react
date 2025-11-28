@@ -22,12 +22,12 @@ body{
   background: linear-gradient(90deg, #0e295d, rgb(8, 114, 92));
   padding: 20px;
   border: 1px solid #fff;
-  border-radius: 10px;
+  -o-border-radius: 10px;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  
+  border-radius: 10px;
+  box-shadow:rgb(8, 114, 92) 0px 0px 10px 0px;
 }
 h1{
   color: #fff;
@@ -37,37 +37,79 @@ h1{
 .todo-image{
   width: 50px;
   height: 50px;
-  display: inline-block;
+  
   vertical-align: middle;
 }
 
 input{
   font-size: 16px;
-  width: 60%;
+  width: 65%;
   padding: 10px;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  -o-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
   outline: none;
   border: none;
 }
 .add-btn{
+  background-color: rgb(133, 9, 96);
   font-size: 16px;
   padding: 10px;
-  border-radius: 10px;
-  margin-left: 10px;
+  -o-border-radius: 15px;
+  margin-left: -10px;
   outline: none;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  -o-transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-transition: background-color 0.3s ease, color 0.3s ease;
   -moz-transition: background-color 0.3s ease, color 0.3s ease;
   -ms-transition: background-color 0.3s ease, color 0.3s ease;
-  -o-transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
 }
 .add-btn:hover{
   background-color: #2e3a43;
   color: #1b0a71;
+}
+
+.task-list{
+  margin-top: 20px;
+  padding: 10px;
+  -o-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  border-radius: 15px;
+  box-shadow: rgb(8, 114, 92) 0px 0px 10px 0px;
+
+}
+ol{
+  
+  color: black;
+
+}
+li{
+  margin-bottom: 10px;
+  font-size: 18px;
+  display: block; 
+  list-style-type: numeric;
+}
+p{
+  color: black;
+  margin-left: 10px;
+  display: flex;
+}
+
+.checked-png{
+width: 20px;
+
+}
+.remove-png{
+  width: 20px;
+
 }
