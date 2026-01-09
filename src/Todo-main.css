@@ -1,6 +1,23 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kedebideri:wght@400;500;600;700;800;900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
+@media (max-width: 480px) {
+  .container {
+    width: 60%;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 90%;
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    width: 40%;
+  }
+}
 
 *{
   margin: 0;
@@ -28,6 +45,17 @@ body{
   -ms-border-radius: 10px;
   border-radius: 10px;
   box-shadow:rgb(8, 114, 92) 0px 0px 10px 0px;
+  word-wrap: break-word;
+}
+.sub-container{
+  background-color: transparent;
+  padding: 20px;
+  -o-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  
 }
 h1{
   color: #fff;
@@ -58,7 +86,7 @@ input{
   font-size: 16px;
   padding: 10px;
   -o-border-radius: 15px;
-  margin-left: -10px;
+  margin-left: -8px;
   outline: none;
   border: none;
   cursor: pointer;
@@ -88,28 +116,45 @@ input{
   box-shadow: rgb(8, 114, 92) 0px 0px 10px 0px;
 
 }
-ol{
+ul{
   
   color: black;
-
+  line-height: 2;
 }
 li{
   margin-bottom: 10px;
   font-size: 18px;
   display: block; 
-  list-style-type: numeric;
-}
-p{
-  color: black;
-  margin-left: 10px;
-  display: flex;
+  cursor: pointer;
+  alignment-baseline: middle;
 }
 
+
 .checked-png{
-width: 20px;
+width: 16px;
+cursor: pointer;
+margin-right: 5px;
 
 }
 .remove-png{
-  width: 20px;
+  width: 16px;
+  cursor: pointer;
+  margin-right: 5px;
 
+}
+.ink-pen{
+  width: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  position: absolute;
+  margin-top: 5px;
+
+}
+.delete{
+  width: 20px;
+  cursor: pointer;
+  margin-left: 35px;
+  position: absolute;
+  margin-right: 10px;
+  margin-top: 5px;
 }
