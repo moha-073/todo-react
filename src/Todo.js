@@ -1,30 +1,48 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
-import { useState }  from 'react';
+import { useState, useEffect }  from 'react';
 import './Todo-main.css';
 
 
 const TodoApp = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
   const [task, setTask] = useState("");
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   const addTask = () => {
     if (task === "") {
       alert("Please enter a task");
     } else {
-      setTasks([...tasks, task]);
+      setTasks([...tasks, { id: Date.now(), text: task, completed: false }]);
       setTask("");
     }
   }
-  const toggleTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].completed = !newTasks[index].completed;
+  const toggleTask = (id) => {
+    const newTasks = tasks.map((t) => 
+      t.id === id ? {...t, completed: !t.completed} : t
+    )
     setTasks(newTasks);
+
+    alert(
+      `Task "${tasks.find(t => t.id === id).text}" marked as ${tasks.find(t => t.id === id).completed ? "incomplete" : "completed"}!`
+    );
+
+  }
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(t => t.id !== id));
   }
   return(
-    <>
-    <h1><img src="/images/to-do-list.png" className="todo-image" />TodoApp</h1>
+    <div className='sub-container'>
+    <h1>
+      <img src="/images/to-do-list.png" className="todo-image" />
+      TodoApp
+      </h1>
             <input 
             type="text"
             placeholder="Add a new task anytime..."
@@ -38,12 +56,21 @@ const TodoApp = () => {
             <ul>
               {tasks.map((t, index) => (
                   <li 
-                  key={index}
-                  onClick={() => toggleTask(index)}
+                  key={t.id}
+                  onClick={() => toggleTask(t.id)}
+                  style={{ textDecoration: t.completed ? "line-through" : "none" }}
                   >
-  
-                    {t.completed ? (<img  src="/images/checked.png" className="checked-png" />) : (<img src="/images/remove.png" className="remove-png" />) }
-                    <p>{t.text}</p>
+                    {t.completed ? (<><img src="/images/check.png" className="checked-png" /> {t.text} <img src="/images/ink-pen.png" className="ink-pen" /> </>) : (<><img src="/images/remove.png" className="remove-png" /> {t.text} <img src="/images/ink-pen.png" className="ink-pen" /> </>) }
+                    
+                      <img src="/images/interface.png" className="delete" 
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        deleteTask(t.id);
+                      }} />
+                    
+                    
+                    
+                    
                   </li>
                 ))}
               
@@ -54,7 +81,7 @@ const TodoApp = () => {
             </ul>
             </div>
     
-    </>
+    </div>
   )
 }
 export default TodoApp;
