@@ -51,7 +51,7 @@ const TodoApp = () => {
             />
             <button className="add-btn"
             onClick={addTask}
-            >Add a new task</button>
+            >Add a task</button>
             <div className="task-list">
             <ul>
               {tasks.map((t, index) => (
