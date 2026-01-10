@@ -5,12 +5,13 @@
 
 @media (max-width: 768px) {
   .container {
-    width: 50%;
+    width: 90%;
     padding: 10px;
 
   }
   .sub-container {
     padding: 10px;
+    
   }
 }
 
@@ -27,11 +28,11 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
+  max-width: 1000vw;
 }
 .container{
-  width: 500px;
+  width: 100%;
   background: linear-gradient(90deg, #0e295d, rgb(8, 114, 92));
   padding: 20px;
   border: 1px solid #fff;
